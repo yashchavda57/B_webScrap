@@ -1,18 +1,21 @@
 import requests
 import bs4 
+import os
 
-url=input("Enter your url: ")
+url = input("Enter your url: ")
 response = requests.get(url)
 #Below given is an extra testing section.
 #print(type(response))
 #print(response.text)
-filename="temp.html"
+filename = input("Enter File Name : ")
+filename = filename + ".html"
 bs = bs4.BeautifulSoup(response.text,"html.parser")
 
 formatted_text = bs.prettify()
 print(formatted_text)
 
-with open(filename,"w+") as f:
+#Save file to Output Folder
+with open(os.path.join('Output', filename, "w+") as f:
     f.write(formatted_text)
 
 list_div = bs.find_all('div')    
