@@ -1,8 +1,9 @@
 import requests
-import bs4
+import bs4 
 
 url=input("Enter your url: ")
 response = requests.get(url)
+#Below given is an extra testing section.
 #print(type(response))
 #print(response.text)
 filename="temp.html"
